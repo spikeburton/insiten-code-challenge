@@ -45,4 +45,4 @@ for (let i = 0; i < 25; i++) {
 const data = JSON.stringify({
   companies
 });
-fs.writeFileSync('db.json', data);
+fs.writeFileSync('db/db.json', data);
