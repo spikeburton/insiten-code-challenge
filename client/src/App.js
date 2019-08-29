@@ -3,11 +3,18 @@ import './App.css';
 
 const App = () => {
   const [companies, setCompanies] = useState([]);
+  const [current, setCurrent] = useState(null);
   useEffect(() => {
     fetch('/companies')
       .then(res => res.json())
       .then(setCompanies);
   }, []);
+
+  const handleDelete = e => {
+    const i = parseInt(e.target.dataset.id);
+    const payload = [...companies.slice(0, i), ...companies.slice(i + 1)];
+    setCompanies(payload);
+  };
 
   console.log(companies);
   return (
@@ -18,6 +25,12 @@ const App = () => {
       <section id="add-company">
         <div id="form-block">
           <h2>Add Target</h2>
+          <form></form>
+          {current && (
+            <div>
+              <p>{current.name}</p>
+            </div>
+          )}
         </div>
       </section>
       <section id="companies-table">
@@ -32,11 +45,19 @@ const App = () => {
           </thead>
           <tbody>
             {companies.map((company, i) => (
-              <tr key={i}>
+              <tr
+                key={i}
+                // onClick={() => setCurrent(company)}
+              >
                 <td>{company.name}</td>
                 <td>{company.location}</td>
                 <td>{company.description}</td>
                 <td>{company.status}</td>
+                <td>
+                  <button data-id={i} onClick={handleDelete}>
+                    X
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
