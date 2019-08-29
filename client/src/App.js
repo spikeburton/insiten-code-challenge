@@ -17,7 +17,13 @@ const App = () => {
     setCompanies(payload);
   };
 
+  const handleEdit = e => {
+    const i = parseInt(e.target.dataset.id);
+    setCurrent(companies[i]);
+  };
+
   console.log(companies);
+  console.log(current);
   return (
     <div className="App">
       <header id="App-header">
@@ -55,7 +61,9 @@ const App = () => {
                 <td>{company.description}</td>
                 <td>{company.status}</td>
                 <td>
-                  <button data-id={i}>Edit</button>
+                  <button data-id={i} onClick={handleEdit}>
+                    Edit
+                  </button>
                   <button data-id={i} onClick={handleDelete}>
                     X
                   </button>
