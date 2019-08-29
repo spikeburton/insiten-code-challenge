@@ -1,13 +1,16 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   margin: 0 auto;
-  max-width: 800px;
   display: grid;
   grid-template-columns: 1fr;
   min-height: 100vh;
 }
 
-.App-header {
+#App-header {
+  margin: 0 2.4rem;
+}
+
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -16,12 +19,42 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+#add-company {
+  background-color: #03adfc;
+  height: 300px;
+  overflow: hidden;
+}
+
+#form-block {
+  margin: 2.4rem 4rem;
+  background-color: #eee;
+  width: 400px;
+  height: 60%;
+}
+.form-row {
+  overflow: hidden;
+  margin: 0 auto;
+  text-align: center;
+}
+.form-row input {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#companies-table {
+  margin: 2rem auto 3rem;
+  max-width: 1000px;
+  /* display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh; */
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
 }
 
 th, td {
@@ -32,4 +65,9 @@ th, td {
 
 th {
   border-width: 2px;
+}
+
+td {
+  color: hsla(0, 0%, 0%, 0.6);
+  /* color: aqua; */
 }
