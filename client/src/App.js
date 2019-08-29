@@ -50,6 +50,12 @@ const App = () => {
     const i = parseInt(e.target.dataset.id);
     const payload = [...companies.slice(0, i), ...companies.slice(i + 1)];
     setCompanies(payload);
+
+    // Clear form to prevent trying to "update" a deleted entry
+    if (editing !== null) {
+      setFormValues(defaultFormValues);
+      setEditing(null);
+    }
   };
 
   return (
@@ -73,6 +79,7 @@ const App = () => {
               <th>Location</th>
               <th>Description</th>
               <th>Status</th>
+              <th>Options</th>
             </tr>
           </thead>
           <tbody>
