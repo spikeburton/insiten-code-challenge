@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import AddTargetForm from './components/AddTargetForm';
 
 const App = () => {
   const [companies, setCompanies] = useState([]);
@@ -25,7 +26,7 @@ const App = () => {
       <section id="add-company">
         <div id="form-block">
           <h2>Add Target</h2>
-          <form></form>
+          <AddTargetForm />
           {current && (
             <div>
               <p>{current.name}</p>
