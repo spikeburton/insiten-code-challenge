@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TargetForm from './components/TargetForm';
 
 import './App.css';
+import CompaniesList from './components/CompaniesList';
 
 const defaultFormValues = {
   name: '',
@@ -72,35 +73,11 @@ const App = () => {
         />
       </section>
       <section id="companies-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Company</th>
-              <th>Location</th>
-              <th>Description</th>
-              <th>Status</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-          <tbody>
-            {companies.map((company, i) => (
-              <tr key={i}>
-                <td>{company.name}</td>
-                <td>{company.location}</td>
-                <td>{company.description}</td>
-                <td>{company.status}</td>
-                <td>
-                  <button data-id={i} onClick={handleEdit}>
-                    Edit
-                  </button>
-                  <button data-id={i} onClick={handleDelete}>
-                    X
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <CompaniesList
+          companies={companies}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+        />
       </section>
     </div>
   );
