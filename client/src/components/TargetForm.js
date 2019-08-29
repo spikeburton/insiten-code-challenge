@@ -65,7 +65,7 @@ TargetForm.propTypes = {
   formValues: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  editing: PropTypes.any.isRequired
+  editing: PropTypes.any
 };
 
 export default TargetForm;
