@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TargetForm from './components/TargetForm';
 
-import './App.css';
+import './styles/app.css';
 import CompaniesList from './components/CompaniesList';
 
 const defaultFormValues = {
@@ -60,7 +60,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="container">
       <header id="App-header">
         <h1>Target Acquisitions</h1>
       </header>
