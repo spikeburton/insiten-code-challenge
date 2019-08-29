@@ -2,14 +2,48 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import AddTargetForm from './components/AddTargetForm';
 
+const defaultFormValues = {
+  name: '',
+  location: '',
+  description: '',
+  status: 'researching'
+};
+
 const App = () => {
   const [companies, setCompanies] = useState([]);
-  const [current, setCurrent] = useState(null);
+  const [editing, setEditing] = useState(null);
+  const [formValues, setFormValues] = useState(defaultFormValues);
+
   useEffect(() => {
     fetch('/companies')
       .then(res => res.json())
       .then(setCompanies);
   }, []);
+
+  const handleChange = e =>
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (editing !== null) {
+      setCompanies([
+        ...companies.slice(0, editing),
+        formValues,
+        ...companies.slice(editing + 1)
+      ]);
+      setEditing(null);
+    } else {
+      setCompanies([formValues, ...companies]);
+    }
+    setFormValues(defaultFormValues);
+    e.target.reset();
+  };
+
+  const handleEdit = e => {
+    const i = parseInt(e.target.dataset.id);
+    setFormValues(companies[i]);
+    setEditing(i);
+  };
 
   const handleDelete = e => {
     const i = parseInt(e.target.dataset.id);
@@ -17,28 +51,19 @@ const App = () => {
     setCompanies(payload);
   };
 
-  const handleEdit = e => {
-    const i = parseInt(e.target.dataset.id);
-    setCurrent(companies[i]);
-  };
-
   console.log(companies);
-  console.log(current);
   return (
     <div className="App">
       <header id="App-header">
         <h1>Target Acquisitions</h1>
       </header>
       <section id="add-company">
-        <div id="form-block">
-          <h2>Add Target</h2>
-          <AddTargetForm companies={companies} setCompanies={setCompanies} />
-          {current && (
-            <div>
-              <p>{current.name}</p>
-            </div>
-          )}
-        </div>
+        <AddTargetForm
+          formValues={formValues}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          editing={editing}
+        />
       </section>
       <section id="companies-table">
         <table>
@@ -52,10 +77,7 @@ const App = () => {
           </thead>
           <tbody>
             {companies.map((company, i) => (
-              <tr
-                key={i}
-                // onClick={() => setCurrent(company)}
-              >
+              <tr key={i}>
                 <td>{company.name}</td>
                 <td>{company.location}</td>
                 <td>{company.description}</td>
