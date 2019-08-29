@@ -47,8 +47,25 @@
 }
 
 #submit-button {
-  margin: 0 auto;
+  margin: 0.6rem auto;
   text-align: center;
+}
+
+#submit-button input {
+  padding: 7px 12px;
+  background-color: orangered;
+  border: none;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: all ease 0.7s;
+  -webkit-transition: all ease 0.7s;
+  -moz-transition: all ease 0.7s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#submit-button input:hover {
+  background-color: orange;
 }
 
 #companies-table {

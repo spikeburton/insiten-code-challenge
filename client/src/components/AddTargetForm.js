@@ -64,7 +64,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
           <option value="declined">Declined</option>
         </select>
       </div>
-      <div className="form-row">
+      <div id="submit-button">
         <input type="submit" />
       </div>
     </form>
