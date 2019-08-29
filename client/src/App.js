@@ -61,7 +61,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <header id="App-header">
+      <header className="header">
         <h1>Target Acquisitions</h1>
       </header>
       <section id="add-company">
