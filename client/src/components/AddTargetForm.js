@@ -21,7 +21,6 @@ const AddTargetForm = ({ setCompanies, companies }) => {
     e.target.reset();
   };
 
-  console.log(formValues);
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-row">
@@ -72,6 +71,9 @@ const AddTargetForm = ({ setCompanies, companies }) => {
   );
 };
 
-AddTargetForm.propTypes = {};
+AddTargetForm.propTypes = {
+  setCompanies: PropTypes.func.isRequired,
+  companies: PropTypes.array.isRequired
+};
 
 export default AddTargetForm;
