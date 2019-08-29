@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [companies, setCompanies] = useState([]);
+  useEffect(() => {
+    fetch('/companies')
+      .then(res => res.json())
+      .then(setCompanies);
+  }, []);
+
+  console.log(companies);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Target Acquisitions</h1>
       </header>
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Location</th>
+              <th>Description</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {companies.map((company, i) => (
+              <tr key={i}>
+                <td>{company.name}</td>
+                <td>{company.location}</td>
+                <td>{company.description}</td>
+                <td>{company.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
     </div>
   );
-}
+};
 
 export default App;
