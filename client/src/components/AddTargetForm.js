@@ -5,7 +5,7 @@ const defaultFormValues = {
   name: '',
   location: '',
   description: '',
-  status: ''
+  status: 'researching'
 };
 
 const AddTargetForm = ({ setCompanies, companies }) => {
@@ -21,6 +21,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
     e.target.reset();
   };
 
+  console.log(formValues);
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-row">
@@ -42,11 +43,24 @@ const AddTargetForm = ({ setCompanies, companies }) => {
       <div className="form-row">
         <label htmlFor="description"></label>
         <input
-          type="status"
-          name="status"
+          type="text"
+          name="description"
           placeholder="Description"
           onChange={handleChange}
         />
+      </div>
+      <div className="form-row">
+        <select
+          name="status"
+          id="status"
+          value={formValues.status}
+          onChange={handleChange}
+        >
+          <option value="researching">Researching</option>
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="declined">Declined</option>
+        </select>
       </div>
       <input type="submit" />
     </form>
