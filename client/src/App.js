@@ -15,6 +15,11 @@ const App = () => {
       <header id="App-header">
         <h1>Target Acquisitions</h1>
       </header>
+      <section id="add-company">
+        <div id="form-block">
+          <h2>Add Target</h2>
+        </div>
+      </section>
       <section id="companies-table">
         <table>
           <thead>
