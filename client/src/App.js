@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import TargetForm from './components/TargetForm';
+import CompaniesList from './components/CompaniesList';
 
 import './styles/app.css';
-import CompaniesList from './components/CompaniesList';
 
 const defaultFormValues = {
   name: '',
@@ -17,6 +17,7 @@ const App = () => {
   const [formValues, setFormValues] = useState(defaultFormValues);
 
   useEffect(() => {
+    // When the component mounts, fetch the list of companies
     fetch('/companies')
       .then(res => res.json())
       .then(setCompanies);
@@ -28,6 +29,8 @@ const App = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (editing !== null) {
+      // If editing an existing entry, replace the entry in the list with
+      // the updated values from the form
       setCompanies([
         ...companies.slice(0, editing),
         formValues,
@@ -35,6 +38,7 @@ const App = () => {
       ]);
       setEditing(null);
     } else {
+      // Otherwise, add the new entry to the beginning of the list
       setCompanies([formValues, ...companies]);
     }
     setFormValues(defaultFormValues);
