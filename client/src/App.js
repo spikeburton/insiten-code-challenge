@@ -12,10 +12,10 @@ const App = () => {
   console.log(companies);
   return (
     <div className="App">
-      <header>
+      <header id="App-header">
         <h1>Target Acquisitions</h1>
       </header>
-      <section>
+      <section id="companies-table">
         <table>
           <thead>
             <tr>

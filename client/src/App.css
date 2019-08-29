@@ -1,13 +1,17 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   margin: 0 auto;
-  max-width: 800px;
   display: grid;
   grid-template-columns: 1fr;
   min-height: 100vh;
 }
 
-.App-header {
+#App-header {
+  /* max-width: 800px; */
+  margin: 0 2.4rem;
+}
+
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -16,6 +20,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+#companies-table {
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 table {
