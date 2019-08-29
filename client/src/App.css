@@ -29,18 +29,26 @@
 
 #form-block {
   margin: 2.4rem 4rem;
+  padding: 1.2rem 2.6rem;
   background-color: #eee;
   width: 400px;
   height: 60%;
 }
+
 .form-row {
   overflow: hidden;
   margin: 0 auto;
   text-align: center;
 }
+
 .form-row input {
   width: 90%;
   margin: 0 auto;
+}
+
+#submit-button {
+  margin: 0 auto;
+  text-align: center;
 }
 
 #companies-table {
