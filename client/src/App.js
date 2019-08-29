@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 const App = () => {
+  const [companies, setCompanies] = useState([]);
+  useEffect(() => {
+    fetch('/companies')
+      .then(res => res.json())
+      .then(setCompanies);
+  }, []);
+
+  console.log(companies);
   return (
     <div className="App">
       <header>
@@ -18,9 +26,14 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>HI</td>
-            </tr>
+            {companies.map((company, i) => (
+              <tr key={i}>
+                <td>{company.name}</td>
+                <td>{company.location}</td>
+                <td>{company.description}</td>
+                <td>{company.status}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
