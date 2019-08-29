@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+const defaultFormValues = {
+  name: '',
+  location: '',
+  description: '',
+  status: ''
+};
+
 const AddTargetForm = ({ setCompanies, companies }) => {
-  const [formValues, setFormValues] = useState({
-    name: '',
-    location: '',
-    description: '',
-    status: ''
-  });
+  const [formValues, setFormValues] = useState(defaultFormValues);
 
   const handleChange = e =>
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -15,6 +17,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
   const handleSubmit = e => {
     e.preventDefault();
     setCompanies([formValues, ...companies]);
+    setFormValues(defaultFormValues);
     e.target.reset();
   };
 

@@ -26,7 +26,7 @@ const App = () => {
       <section id="add-company">
         <div id="form-block">
           <h2>Add Target</h2>
-          <AddTargetForm />
+          <AddTargetForm companies={companies} setCompanies={setCompanies} />
           {current && (
             <div>
               <p>{current.name}</p>
