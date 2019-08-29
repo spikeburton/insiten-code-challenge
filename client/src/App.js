@@ -55,6 +55,7 @@ const App = () => {
                 <td>{company.description}</td>
                 <td>{company.status}</td>
                 <td>
+                  <button data-id={i}>Edit</button>
                   <button data-id={i} onClick={handleDelete}>
                     X
                   </button>
