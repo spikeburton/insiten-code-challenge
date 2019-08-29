@@ -29,6 +29,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
           type="text"
           name="name"
           placeholder="Company Name"
+          value={formValues.name}
           onChange={handleChange}
         />
       </div>
@@ -37,6 +38,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
           type="text"
           name="location"
           placeholder="Location"
+          value={formValues.location}
           onChange={handleChange}
         />
       </div>
@@ -46,6 +48,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
           type="text"
           name="description"
           placeholder="Description"
+          value={formValues.description}
           onChange={handleChange}
         />
       </div>
@@ -62,7 +65,9 @@ const AddTargetForm = ({ setCompanies, companies }) => {
           <option value="declined">Declined</option>
         </select>
       </div>
-      <input type="submit" />
+      <div className="form-row">
+        <input type="submit" />
+      </div>
     </form>
   );
 };
