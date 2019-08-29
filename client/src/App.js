@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import AddTargetForm from './components/AddTargetForm';
+import TargetForm from './components/TargetForm';
 
 const defaultFormValues = {
   name: '',
@@ -58,7 +58,7 @@ const App = () => {
         <h1>Target Acquisitions</h1>
       </header>
       <section id="add-company">
-        <AddTargetForm
+        <TargetForm
           formValues={formValues}
           handleChange={handleChange}
           handleSubmit={handleSubmit}

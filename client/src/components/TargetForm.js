@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const AddTargetForm = ({ formValues, handleChange, handleSubmit, editing }) => {
+const TargetForm = ({ formValues, handleChange, handleSubmit, editing }) => {
   return (
     <div id="form-block">
       <h2>{editing !== null ? 'Edit' : 'Add'} Target</h2>
@@ -61,10 +61,11 @@ const AddTargetForm = ({ formValues, handleChange, handleSubmit, editing }) => {
   );
 };
 
-AddTargetForm.propTypes = {
-  setCompanies: PropTypes.func.isRequired,
-  companies: PropTypes.array.isRequired,
-  current: PropTypes.object
+TargetForm.propTypes = {
+  formValues: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  editing: PropTypes.any.isRequired
 };
 
-export default AddTargetForm;
+export default TargetForm;
