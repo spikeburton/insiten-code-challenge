@@ -30,6 +30,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
           placeholder="Company Name"
           value={formValues.name}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-row">
@@ -39,6 +40,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
           placeholder="Location"
           value={formValues.location}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-row">
@@ -49,6 +51,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
           placeholder="Description"
           value={formValues.description}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-row">
@@ -65,7 +68,7 @@ const AddTargetForm = ({ setCompanies, companies }) => {
         </select>
       </div>
       <div id="submit-button">
-        <input type="submit" />
+        <input type="submit" value="Add Target" />
       </div>
     </form>
   );
