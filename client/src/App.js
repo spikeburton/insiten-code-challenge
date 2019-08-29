@@ -13,7 +13,7 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <h1>Hello, World!</h1>
+        <h1>Target Acquisitions</h1>
       </header>
       <section>
         <table>
