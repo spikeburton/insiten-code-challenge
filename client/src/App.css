@@ -2,7 +2,9 @@
   text-align: center;
   margin: 0 auto;
   max-width: 800px;
-  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
 }
 
 .App-header {
@@ -14,4 +16,20 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.4rem;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  border-width: 2px;
 }
