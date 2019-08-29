@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import TargetForm from './components/TargetForm';
+
+import './App.css';
 
 const defaultFormValues = {
   name: '',
@@ -51,7 +52,6 @@ const App = () => {
     setCompanies(payload);
   };
 
-  console.log(companies);
   return (
     <div className="App">
       <header id="App-header">
